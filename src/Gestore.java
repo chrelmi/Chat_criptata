@@ -30,8 +30,7 @@ public class Gestore {
     String user2="";
     String echo="Questo è il messaggio che dovrebbe essere come quello ricevuto";
     boolean end=false;
-    Vigenere cif;
-    
+    Vigenere cif;  
     Gestore (Socket connection, String user) 
     {          
         cif=new Vigenere();
@@ -66,12 +65,10 @@ public class Gestore {
                 //il client si mette in ascolto
                 lettura(); //ascolta
                 menu(); //comunica
-            }
-            
+            }          
         }
     }
-    public void lettura(){
-        
+    public void lettura(){     
         try {
             /*
                 salvo il messaggio ricevuto in una variabile per stamparlo
@@ -79,8 +76,7 @@ public class Gestore {
                 l'ultimo messaggio ricevuto
             */
             echo=in.readUTF();
-            echo=echo.toLowerCase();
-            System.out.println(RED+user2+": " + echo+RED);
+            System.out.println(RED+user2+": " + echo.toLowerCase()+RED);
         } catch(SocketException e){
             System.out.println(BLUE+user2+" HA CHIUSO LA CONNESSIONE"+BLUE);
             chiudi();
@@ -91,8 +87,7 @@ public class Gestore {
         }
         catch (IOException ex) {
             Logger.getLogger(Gestore.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
+        }   
     }
     public void scrittura(){
         
@@ -128,7 +123,6 @@ public class Gestore {
         System.out.println("\nPremi invio per digitare un messaggio criptato\n"+
                             "Premi 2 per decifrare il messaggio \n"+
                             "Premi 3 per chiudere la connessione");
-                
         String scelta=null;
         BufferedReader tastiera=new BufferedReader (new InputStreamReader(System.in));
         try {
@@ -151,9 +145,7 @@ public class Gestore {
             if(num==3)
             {
                 chiudi();
-            }
-            
-            
+            }          
         }
     }
     public void chiudi()

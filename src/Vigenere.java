@@ -80,7 +80,7 @@ public class Vigenere {
                 v=0;
         }
         
-        System.out.println("\u001B[32m"+"Messaggio decifrato:"+str+"\u001B[32m");
+        System.out.println("\u001B[32m"+"Messaggio decifrato:"+str.toLowerCase()+"\u001B[32m"+"\n");
     }
     String cifra(String message)
     {
@@ -108,7 +108,7 @@ public class Vigenere {
                 k=-1;
             }
         }
-        System.out.print("Messaggio cifrato:"+str+"\n");
+        System.out.print("\u001B[32m"+"Messaggio cifrato:"+str.toLowerCase()+"\u001B[32m"+"\n");
         return str;
     }
 }
